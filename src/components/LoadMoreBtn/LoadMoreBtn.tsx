@@ -1,6 +1,10 @@
 import css from './LoadMoreBtn.module.css';
 
-export default function LoadMoreBtn ({ onClick }) {
+type LoadMoreProps = {
+    onClick: () => void;
+}
+
+const LoadMoreBtn: React.FC<LoadMoreProps> = ({ onClick }) => {
     return (
         <div>
             <button className={css.btn} onClick={onClick}>
@@ -8,4 +12,6 @@ export default function LoadMoreBtn ({ onClick }) {
             </button>
         </div>
     )
-}
+};
+
+export default LoadMoreBtn;

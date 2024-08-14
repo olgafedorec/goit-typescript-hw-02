@@ -4,10 +4,14 @@ import toast from "react-hot-toast";
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import css from "./SearchBar.module.css";
 
-export default function SearchBar({ onSearch }) {
+type FormProps = {
+  onSearch: (query: string) => void;
+}
+
+const SearchBar: React.FC<FormProps> = ({ onSearch }) => {
   return (
 <header className={css.container}>
-<Formik
+<Formik< {query: string} >
       initialValues={{ query: "" }}
       onSubmit={(values, actions) => {
         if(!values.query.trim()) {
@@ -28,3 +32,5 @@ export default function SearchBar({ onSearch }) {
     
   );
 }
+
+export default SearchBar;

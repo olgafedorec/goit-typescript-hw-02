@@ -4,22 +4,23 @@ import { fetchImages } from '../../images-api';
 import SearchBar from "../SearchBar/SearchBar";
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../ImageModal/ImageModal';
+import { Image } from '../../images-api';
 import css from './App.module.css';
 import Loader from '../Loader/Loader';
 import toast from 'react-hot-toast';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 export default function App(){
-const [images, setImages] = useState([]);
+const [images, setImages] = useState<Image[]>([]);
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState(false);
-const [page, setPage] = useState(1);
-const [search, setSearch] = useState("");
-const [totalPages, setTotalPages] = useState(0);
+const [page, setPage] = useState<number>(1);
+const [search, setSearch] = useState<string>("");
+const [totalPages, setTotalPages] = useState<number>(0);
 const [modalIsOpen, setModalIsOpen] = useState(false);
-const [selectedImage, setSelectedImage] = useState(null);
+const [selectedImage, setSelectedImage] = useState<Image | null>(null);
 
-const handleSearch = async (newSearch) => {
+const handleSearch = async (newSearch: string) => {
     setImages([]);
     setError(false); 
     setPage(1);
@@ -31,7 +32,7 @@ const handleLoadMore = () => {
    setLoading(true);
 }
 
-const handleImageClick = (image) => {
+const handleImageClick = (image: Image) => {
     setSelectedImage(image);
     setModalIsOpen(true);
 }

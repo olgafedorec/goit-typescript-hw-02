@@ -1,7 +1,13 @@
 import Modal from 'react-modal';
+import { Image } from '../ImageCard/ImageCard';
 import css from './ImageModal.module.css';
 
-export default function ImageModal({ image: { alt_description, urls: { regular } }, onClose }) {
+type ImageModalProps = {
+    image: Image;
+    onClose: () => void;
+}
+
+const ImageModal: React.FC<ImageModalProps> = ({ image: { alt_description, urls: { regular } }, onClose }) => {
     return (
         <Modal
             isOpen={true}
@@ -13,3 +19,5 @@ export default function ImageModal({ image: { alt_description, urls: { regular }
         </Modal>
     );
 }
+
+export default ImageModal;
