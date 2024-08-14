@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import { Image } from '../ImageCard/ImageCard';
+import { Image } from '../../images-api';
 import css from './ImageModal.module.css';
 
 type ImageModalProps = {
